@@ -234,7 +234,7 @@ def get_casos_ia_sindical():
                 
                 caso = {
                     'ID': record['id'],
-                    'Titulo': fields.get('Título', 'Sin título'),
+                    'Titulo': fields.get('Título del Caso', 'Sin título'),
                     'País': pais,
                     'Latitud': lat,
                     'Longitud': lon,
