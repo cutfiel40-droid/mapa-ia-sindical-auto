@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_30a7aba811f71e9cfe51e0bbf8158cef {
+                #map_355f6deae9be63ca9f6d2a9dbeb800aa {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -54,14 +54,14 @@
 <body>
     
     
-            <div class="folium-map" id="map_30a7aba811f71e9cfe51e0bbf8158cef" ></div>
+            <div class="folium-map" id="map_355f6deae9be63ca9f6d2a9dbeb800aa" ></div>
         
 </body>
 <script>
     
     
-            var map_30a7aba811f71e9cfe51e0bbf8158cef = L.map(
-                "map_30a7aba811f71e9cfe51e0bbf8158cef",
+            var map_355f6deae9be63ca9f6d2a9dbeb800aa = L.map(
+                "map_355f6deae9be63ca9f6d2a9dbeb800aa",
                 {
                     center: [0.0, 0.0],
                     crs: L.CRS.EPSG3857,
@@ -79,6 +79,8 @@
   "zoom": 2,
   "zoomControl": true,
   "preferCanvas": false,
+  "worldCopyJump": false,
+  "noWrap": true,
 }
 
                 }
@@ -88,12 +90,12 @@
 
         
     
-            var tile_layer_8957d2eaf07a1a548dd908e22f1f4529 = L.tileLayer(
+            var tile_layer_1a2ef69803432a676beb408cf864fa26 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
-  "minZoom": 1,
-  "maxZoom": 18,
-  "maxNativeZoom": 18,
+  "minZoom": 2,
+  "maxZoom": 15,
+  "maxNativeZoom": 15,
   "noWrap": false,
   "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
   "subdomains": "abc",
@@ -105,23 +107,23 @@
             );
         
     
-            tile_layer_8957d2eaf07a1a548dd908e22f1f4529.addTo(map_30a7aba811f71e9cfe51e0bbf8158cef);
+            tile_layer_1a2ef69803432a676beb408cf864fa26.addTo(map_355f6deae9be63ca9f6d2a9dbeb800aa);
         
     
-            map_30a7aba811f71e9cfe51e0bbf8158cef.fitBounds(
-                [[-60, -180], [70, 180]],
-                {"padding": [20, 20]}
+            map_355f6deae9be63ca9f6d2a9dbeb800aa.fitBounds(
+                [[-60, -180], [85, 180]],
+                {"padding": [10, 10]}
             );
         
     
-            var marker_0d2f5c99803ba07ef741a7edd1093797 = L.marker(
+            var marker_b0432bca16b6f1dae1ce833c9e5944a5 = L.marker(
                 [41.6523, -4.245],
                 {
 }
-            ).addTo(map_30a7aba811f71e9cfe51e0bbf8158cef);
+            ).addTo(map_355f6deae9be63ca9f6d2a9dbeb800aa);
         
     
-            var icon_d6d7e3434c72a27792de2e52328627f7 = L.AwesomeMarkers.icon(
+            var icon_1046cd74b9dba2133ba5bef22e5f44e8 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -132,24 +134,24 @@
             );
         
     
-        var popup_82ff3eca3e450faedee5eab4c888b39e = L.popup({
-  "maxWidth": 370,
+        var popup_302373716234f00b94a4819df5232c6d = L.popup({
+  "maxWidth": 400,
 });
 
         
             
-                var html_bbf8f30d57b569235e2a0c6fa2af858c = $(`<div id="html_bbf8f30d57b569235e2a0c6fa2af858c" style="width: 100.0%; height: 100.0%;">             <div style="width: 350px; font-family: 'Courier New', monospace;                         background: white; border: 2px solid #333; padding: 0; border-radius: 5px;">                                  <!-- TÍTULO CON BORDE -->                 <div style="background: #f0f0f0; padding: 10px; border-bottom: 1px solid #333;                             font-weight: bold; text-align: center; border-radius: 3px 3px 0 0;">                     Caso IA Sindical - España                 </div>                                  <!-- CONTENIDO PRINCIPAL -->                 <div style="padding: 12px; font-size: 13px; line-height: 1.5;">                     <div style="margin-bottom: 4px;">🏢 <strong>Organización:</strong> Comité de Empresa El Norte de Castilla</div>                     <div style="margin-bottom: 4px;">🤖 <strong>Tipo IA:</strong> No especificado</div>                     <div style="margin-bottom: 4px;">📊 <strong>Estado:</strong> Completado</div>                     <div style="margin-bottom: 4px;">📄 <strong>Fuente:</strong> Convenios Colectivos</div>                     <div style="margin-bottom: 8px;">👥 <strong>Actores:</strong> ['Sindicatos', 'Empresas del sector (empleadoras)']</div>                                          <!-- SEPARADOR -->                     <div style="border-top: 1px solid #ccc; margin: 10px 0;"></div>                                          <!-- DESCRIPCIÓN -->                     <div style="margin-bottom: 10px;">                         <div style="margin-bottom: 5px;"><strong>📝 Descripción:</strong></div>                         <div style="font-size: 12px; color: #555; line-height: 1.4; text-align: justify;">                             El XXIX Convenio Colectivo de El Norte de Castilla (2021-2023) regula la introducción de tecnologías digitales en el sector de prensa escrita, protegiendo el empleo frente a la automatización y garant...                         </div>                     </div>                                          <!-- URL SI EXISTE -->                     <div style="text-align: center; margin-top: 8px;"><a href="https://www.convenioscolectivos.net/el-norte-de-castilla-s-a/" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold;">🔗 Ver más información</a></div>                 </div>             </div>             </div>`)[0];
-                popup_82ff3eca3e450faedee5eab4c888b39e.setContent(html_bbf8f30d57b569235e2a0c6fa2af858c);
+                var html_1dc9c7cbd53c8178ae79e223c1f6ca78 = $(`<div id="html_1dc9c7cbd53c8178ae79e223c1f6ca78" style="width: 100.0%; height: 100.0%;">             <div style="width: 380px; font-family: 'Courier New', monospace;                         background: white; border: 2px solid #333; padding: 0; border-radius: 5px;">                                  <!-- TÍTULO -->                 <div style="background: #f0f0f0; padding: 10px; border-bottom: 1px solid #333;                             font-weight: bold; text-align: center; border-radius: 3px 3px 0 0;">                     Caso IA Sindical - España                 </div>                                  <!-- CONTENIDO -->                 <div style="padding: 12px; font-size: 13px; line-height: 1.5;">                     <div style="margin-bottom: 4px;">🏢 <strong>Organización:</strong> Comité de Empresa El Norte de Castilla</div>                     <div style="margin-bottom: 4px;">🤖 <strong>Tipo IA:</strong> No especificado</div>                     <div style="margin-bottom: 4px;">📊 <strong>Estado:</strong> Completado</div>                     <div style="margin-bottom: 4px;">📄 <strong>Fuente:</strong> Convenios Colectivos</div>                     <div style="margin-bottom: 8px;">👥 <strong>Actores:</strong> ['Sindicatos', 'Empresas del sector (empleadoras)']</div>                                          <!-- SEPARADOR -->                     <div style="border-top: 1px solid #ccc; margin: 10px 0;"></div>                                          <!-- DESCRIPCIÓN COMPLETA (SIN LÍMITE) -->                     <div style="margin-bottom: 10px;">                         <div style="margin-bottom: 5px;"><strong>📝 Descripción:</strong></div>                         <div style="font-size: 12px; color: #555; line-height: 1.4; text-align: justify;                                     max-height: 150px; overflow-y: auto; padding-right: 5px;">                             El XXIX Convenio Colectivo de El Norte de Castilla (2021-2023) regula la introducción de tecnologías digitales en el sector de prensa escrita, protegiendo el empleo frente a la automatización y garantizando formación y participación sindical en decisiones tecnológicas durante la crisis estructural del sector.                         </div>                     </div>                                          <!-- URL SI EXISTE -->                     <div style="text-align: center; margin-top: 8px;"><a href="https://www.convenioscolectivos.net/el-norte-de-castilla-s-a/" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold;">🔗 Ver más información</a></div>                 </div>             </div>             </div>`)[0];
+                popup_302373716234f00b94a4819df5232c6d.setContent(html_1dc9c7cbd53c8178ae79e223c1f6ca78);
             
         
 
-        marker_0d2f5c99803ba07ef741a7edd1093797.bindPopup(popup_82ff3eca3e450faedee5eab4c888b39e)
+        marker_b0432bca16b6f1dae1ce833c9e5944a5.bindPopup(popup_302373716234f00b94a4819df5232c6d)
         ;
 
         
     
     
-            marker_0d2f5c99803ba07ef741a7edd1093797.bindTooltip(
+            marker_b0432bca16b6f1dae1ce833c9e5944a5.bindTooltip(
                 `<div>
                      Sin título - España
                  </div>`,
@@ -159,17 +161,17 @@
             );
         
     
-                marker_0d2f5c99803ba07ef741a7edd1093797.setIcon(icon_d6d7e3434c72a27792de2e52328627f7);
+                marker_b0432bca16b6f1dae1ce833c9e5944a5.setIcon(icon_1046cd74b9dba2133ba5bef22e5f44e8);
             
     
-            var marker_29031458709914b07e960e19f1690f83 = L.marker(
+            var marker_040877432df2b3d73b8a8a15dabee20a = L.marker(
                 [51.074, -0.1278],
                 {
 }
-            ).addTo(map_30a7aba811f71e9cfe51e0bbf8158cef);
+            ).addTo(map_355f6deae9be63ca9f6d2a9dbeb800aa);
         
     
-            var icon_0f9c39af7db03a8dbea18362f41ed585 = L.AwesomeMarkers.icon(
+            var icon_ab1c7c7a2fc521bf5bfbbed33688cd43 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -180,24 +182,24 @@
             );
         
     
-        var popup_9c372233b3f56ab8600726be151cf7fd = L.popup({
-  "maxWidth": 370,
+        var popup_3a76bf9f1500c4cb1cdb23746f9b371f = L.popup({
+  "maxWidth": 400,
 });
 
         
             
-                var html_1dfe9a8310299922669f9f77f157a8c2 = $(`<div id="html_1dfe9a8310299922669f9f77f157a8c2" style="width: 100.0%; height: 100.0%;">             <div style="width: 350px; font-family: 'Courier New', monospace;                         background: white; border: 2px solid #333; padding: 0; border-radius: 5px;">                                  <!-- TÍTULO CON BORDE -->                 <div style="background: #f0f0f0; padding: 10px; border-bottom: 1px solid #333;                             font-weight: bold; text-align: center; border-radius: 3px 3px 0 0;">                     Caso IA Sindical - Reino Unido                 </div>                                  <!-- CONTENIDO PRINCIPAL -->                 <div style="padding: 12px; font-size: 13px; line-height: 1.5;">                     <div style="margin-bottom: 4px;">🏢 <strong>Organización:</strong> Unions 21</div>                     <div style="margin-bottom: 4px;">🤖 <strong>Tipo IA:</strong> No especificado</div>                     <div style="margin-bottom: 4px;">📊 <strong>Estado:</strong> En Desarrollo</div>                     <div style="margin-bottom: 4px;">📄 <strong>Fuente:</strong> Agile unions</div>                     <div style="margin-bottom: 8px;">👥 <strong>Actores:</strong> ['Organizaciones Internacionales', 'Sindicatos']</div>                                          <!-- SEPARADOR -->                     <div style="border-top: 1px solid #ccc; margin: 10px 0;"></div>                                          <!-- DESCRIPCIÓN -->                     <div style="margin-bottom: 10px;">                         <div style="margin-bottom: 5px;"><strong>📝 Descripción:</strong></div>                         <div style="font-size: 12px; color: #555; line-height: 1.4; text-align: justify;">                             Proyecto que capacita a sindicatos en el uso ético de la inteligencia artificial. Ofrece cursos como "Responsible AI Fundamentals for Union Staff", webinars y estudios de caso para ayudar a las organi...                         </div>                     </div>                                          <!-- URL SI EXISTE -->                     <div style="text-align: center; margin-top: 8px;"><a href="https://www.agileunions.ai/" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold;">🔗 Ver más información</a></div>                 </div>             </div>             </div>`)[0];
-                popup_9c372233b3f56ab8600726be151cf7fd.setContent(html_1dfe9a8310299922669f9f77f157a8c2);
+                var html_191ae3208522a69cda5d32319ee0628e = $(`<div id="html_191ae3208522a69cda5d32319ee0628e" style="width: 100.0%; height: 100.0%;">             <div style="width: 380px; font-family: 'Courier New', monospace;                         background: white; border: 2px solid #333; padding: 0; border-radius: 5px;">                                  <!-- TÍTULO -->                 <div style="background: #f0f0f0; padding: 10px; border-bottom: 1px solid #333;                             font-weight: bold; text-align: center; border-radius: 3px 3px 0 0;">                     Caso IA Sindical - Reino Unido                 </div>                                  <!-- CONTENIDO -->                 <div style="padding: 12px; font-size: 13px; line-height: 1.5;">                     <div style="margin-bottom: 4px;">🏢 <strong>Organización:</strong> Unions 21</div>                     <div style="margin-bottom: 4px;">🤖 <strong>Tipo IA:</strong> No especificado</div>                     <div style="margin-bottom: 4px;">📊 <strong>Estado:</strong> En Desarrollo</div>                     <div style="margin-bottom: 4px;">📄 <strong>Fuente:</strong> Agile unions</div>                     <div style="margin-bottom: 8px;">👥 <strong>Actores:</strong> ['Organizaciones Internacionales', 'Sindicatos']</div>                                          <!-- SEPARADOR -->                     <div style="border-top: 1px solid #ccc; margin: 10px 0;"></div>                                          <!-- DESCRIPCIÓN COMPLETA (SIN LÍMITE) -->                     <div style="margin-bottom: 10px;">                         <div style="margin-bottom: 5px;"><strong>📝 Descripción:</strong></div>                         <div style="font-size: 12px; color: #555; line-height: 1.4; text-align: justify;                                     max-height: 150px; overflow-y: auto; padding-right: 5px;">                             Proyecto que capacita a sindicatos en el uso ético de la inteligencia artificial. Ofrece cursos como "Responsible AI Fundamentals for Union Staff", webinars y estudios de caso para ayudar a las organizaciones sindicales a comprender, adquirir habilidades y formar redes de apoyo en la era de la IA, promoviendo su adopción responsable en actividades como desarrollo de materiales, atención a afiliados y automatización interna con enfoque ético.                         </div>                     </div>                                          <!-- URL SI EXISTE -->                     <div style="text-align: center; margin-top: 8px;"><a href="https://www.agileunions.ai/" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold;">🔗 Ver más información</a></div>                 </div>             </div>             </div>`)[0];
+                popup_3a76bf9f1500c4cb1cdb23746f9b371f.setContent(html_191ae3208522a69cda5d32319ee0628e);
             
         
 
-        marker_29031458709914b07e960e19f1690f83.bindPopup(popup_9c372233b3f56ab8600726be151cf7fd)
+        marker_040877432df2b3d73b8a8a15dabee20a.bindPopup(popup_3a76bf9f1500c4cb1cdb23746f9b371f)
         ;
 
         
     
     
-            marker_29031458709914b07e960e19f1690f83.bindTooltip(
+            marker_040877432df2b3d73b8a8a15dabee20a.bindTooltip(
                 `<div>
                      Sin título - Reino Unido
                  </div>`,
@@ -207,17 +209,17 @@
             );
         
     
-                marker_29031458709914b07e960e19f1690f83.setIcon(icon_0f9c39af7db03a8dbea18362f41ed585);
+                marker_040877432df2b3d73b8a8a15dabee20a.setIcon(icon_ab1c7c7a2fc521bf5bfbbed33688cd43);
             
     
-            var marker_9829d942c349bcf364f4700d61e0e4c6 = L.marker(
+            var marker_0201b2b4a7964d9407cf75384fc83c68 = L.marker(
                 [-30.0346, -51.2177],
                 {
 }
-            ).addTo(map_30a7aba811f71e9cfe51e0bbf8158cef);
+            ).addTo(map_355f6deae9be63ca9f6d2a9dbeb800aa);
         
     
-            var icon_7e3d9206064eeae2a1b39c9fa9cba4ea = L.AwesomeMarkers.icon(
+            var icon_916452690b9836dadb6be75f50b5471b = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -228,24 +230,24 @@
             );
         
     
-        var popup_613dd854de17f4ef3c8f4c45a7599d9e = L.popup({
-  "maxWidth": 370,
+        var popup_64142c69d4d34e8194848142869f87bc = L.popup({
+  "maxWidth": 400,
 });
 
         
             
-                var html_c04ca369efd01d7de172e23fccc032dc = $(`<div id="html_c04ca369efd01d7de172e23fccc032dc" style="width: 100.0%; height: 100.0%;">             <div style="width: 350px; font-family: 'Courier New', monospace;                         background: white; border: 2px solid #333; padding: 0; border-radius: 5px;">                                  <!-- TÍTULO CON BORDE -->                 <div style="background: #f0f0f0; padding: 10px; border-bottom: 1px solid #333;                             font-weight: bold; text-align: center; border-radius: 3px 3px 0 0;">                     Caso IA Sindical - Brasil                 </div>                                  <!-- CONTENIDO PRINCIPAL -->                 <div style="padding: 12px; font-size: 13px; line-height: 1.5;">                     <div style="margin-bottom: 4px;">🏢 <strong>Organización:</strong> Sindimoto-RS</div>                     <div style="margin-bottom: 4px;">🤖 <strong>Tipo IA:</strong> No especificado</div>                     <div style="margin-bottom: 4px;">📊 <strong>Estado:</strong> Activo</div>                     <div style="margin-bottom: 4px;">📄 <strong>Fuente:</strong> Sindimoto-RS</div>                     <div style="margin-bottom: 8px;">👥 <strong>Actores:</strong> ['Sindicatos', 'Empresas del sector (empleadoras)']</div>                                          <!-- SEPARADOR -->                     <div style="border-top: 1px solid #ccc; margin: 10px 0;"></div>                                          <!-- DESCRIPCIÓN -->                     <div style="margin-bottom: 10px;">                         <div style="margin-bottom: 5px;"><strong>📝 Descripción:</strong></div>                         <div style="font-size: 12px; color: #555; line-height: 1.4; text-align: justify;">                             En 2024 se firmó el primer convenio colectivo entre un sindicato y una plataforma en Brasil. Crea una Cámara de Conciliación Prévia para conflictos derivados de la gestión algorítmica y obliga a iFood...                         </div>                     </div>                                          <!-- URL SI EXISTE -->                     <div style="text-align: center; margin-top: 8px;"><a href="https://www.ctb.org.br/2024/03/07/sindimoto-rs-celebra-acordo-com-ifood-que-melhora-condicoes-de-motofrete/" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold;">🔗 Ver más información</a></div>                 </div>             </div>             </div>`)[0];
-                popup_613dd854de17f4ef3c8f4c45a7599d9e.setContent(html_c04ca369efd01d7de172e23fccc032dc);
+                var html_99c3a55f52c2a282cbd587692912896b = $(`<div id="html_99c3a55f52c2a282cbd587692912896b" style="width: 100.0%; height: 100.0%;">             <div style="width: 380px; font-family: 'Courier New', monospace;                         background: white; border: 2px solid #333; padding: 0; border-radius: 5px;">                                  <!-- TÍTULO -->                 <div style="background: #f0f0f0; padding: 10px; border-bottom: 1px solid #333;                             font-weight: bold; text-align: center; border-radius: 3px 3px 0 0;">                     Caso IA Sindical - Brasil                 </div>                                  <!-- CONTENIDO -->                 <div style="padding: 12px; font-size: 13px; line-height: 1.5;">                     <div style="margin-bottom: 4px;">🏢 <strong>Organización:</strong> Sindimoto-RS</div>                     <div style="margin-bottom: 4px;">🤖 <strong>Tipo IA:</strong> No especificado</div>                     <div style="margin-bottom: 4px;">📊 <strong>Estado:</strong> Activo</div>                     <div style="margin-bottom: 4px;">📄 <strong>Fuente:</strong> Sindimoto-RS</div>                     <div style="margin-bottom: 8px;">👥 <strong>Actores:</strong> ['Sindicatos', 'Empresas del sector (empleadoras)']</div>                                          <!-- SEPARADOR -->                     <div style="border-top: 1px solid #ccc; margin: 10px 0;"></div>                                          <!-- DESCRIPCIÓN COMPLETA (SIN LÍMITE) -->                     <div style="margin-bottom: 10px;">                         <div style="margin-bottom: 5px;"><strong>📝 Descripción:</strong></div>                         <div style="font-size: 12px; color: #555; line-height: 1.4; text-align: justify;                                     max-height: 150px; overflow-y: auto; padding-right: 5px;">                             En 2024 se firmó el primer convenio colectivo entre un sindicato y una plataforma en Brasil. Crea una Cámara de Conciliación Prévia para conflictos derivados de la gestión algorítmica y obliga a iFood a habilitar espacios físicos dignos para repartidores. Refuerza la regulación participativa de la IA en el trabajo digital.                         </div>                     </div>                                          <!-- URL SI EXISTE -->                     <div style="text-align: center; margin-top: 8px;"><a href="https://www.ctb.org.br/2024/03/07/sindimoto-rs-celebra-acordo-com-ifood-que-melhora-condicoes-de-motofrete/" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold;">🔗 Ver más información</a></div>                 </div>             </div>             </div>`)[0];
+                popup_64142c69d4d34e8194848142869f87bc.setContent(html_99c3a55f52c2a282cbd587692912896b);
             
         
 
-        marker_9829d942c349bcf364f4700d61e0e4c6.bindPopup(popup_613dd854de17f4ef3c8f4c45a7599d9e)
+        marker_0201b2b4a7964d9407cf75384fc83c68.bindPopup(popup_64142c69d4d34e8194848142869f87bc)
         ;
 
         
     
     
-            marker_9829d942c349bcf364f4700d61e0e4c6.bindTooltip(
+            marker_0201b2b4a7964d9407cf75384fc83c68.bindTooltip(
                 `<div>
                      Sin título - Brasil
                  </div>`,
@@ -255,17 +257,17 @@
             );
         
     
-                marker_9829d942c349bcf364f4700d61e0e4c6.setIcon(icon_7e3d9206064eeae2a1b39c9fa9cba4ea);
+                marker_0201b2b4a7964d9407cf75384fc83c68.setIcon(icon_916452690b9836dadb6be75f50b5471b);
             
     
-            var marker_cf7229231b34bbd55433de8d6be05f41 = L.marker(
+            var marker_913532e6af49573eb91dcdc29c2fc305 = L.marker(
                 [-12.0464, -77.0428],
                 {
 }
-            ).addTo(map_30a7aba811f71e9cfe51e0bbf8158cef);
+            ).addTo(map_355f6deae9be63ca9f6d2a9dbeb800aa);
         
     
-            var icon_8f1a299a273d6875770262c77c2d972a = L.AwesomeMarkers.icon(
+            var icon_a31f5b703b36766b38f1ad7f49c30bc9 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -276,24 +278,24 @@
             );
         
     
-        var popup_59d4612b91730cda7075e7b7d9c9df8d = L.popup({
-  "maxWidth": 370,
+        var popup_eb3ee5c402752b6fe94c5b94e2e3ef98 = L.popup({
+  "maxWidth": 400,
 });
 
         
             
-                var html_00806d77d159b0f163ee180d90d679d5 = $(`<div id="html_00806d77d159b0f163ee180d90d679d5" style="width: 100.0%; height: 100.0%;">             <div style="width: 350px; font-family: 'Courier New', monospace;                         background: white; border: 2px solid #333; padding: 0; border-radius: 5px;">                                  <!-- TÍTULO CON BORDE -->                 <div style="background: #f0f0f0; padding: 10px; border-bottom: 1px solid #333;                             font-weight: bold; text-align: center; border-radius: 3px 3px 0 0;">                     Caso IA Sindical - Perú                 </div>                                  <!-- CONTENIDO PRINCIPAL -->                 <div style="padding: 12px; font-size: 13px; line-height: 1.5;">                     <div style="margin-bottom: 4px;">🏢 <strong>Organización:</strong> Organización Internacional del Trabajo (OIT)</div>                     <div style="margin-bottom: 4px;">🤖 <strong>Tipo IA:</strong> No especificado</div>                     <div style="margin-bottom: 4px;">📊 <strong>Estado:</strong> Activo</div>                     <div style="margin-bottom: 4px;">📄 <strong>Fuente:</strong> OIT – Observatorio IA y Trabajo</div>                     <div style="margin-bottom: 8px;">👥 <strong>Actores:</strong> ['Organizaciones Internacionales', 'Sindicatos', 'Gobiernos locales/regionales', 'OIT (Organización Internacional del Trabajo)']</div>                                          <!-- SEPARADOR -->                     <div style="border-top: 1px solid #ccc; margin: 10px 0;"></div>                                          <!-- DESCRIPCIÓN -->                     <div style="margin-bottom: 10px;">                         <div style="margin-bottom: 5px;"><strong>📝 Descripción:</strong></div>                         <div style="font-size: 12px; color: #555; line-height: 1.4; text-align: justify;">                             Plataforma internacional que estudia los impactos de la IA en empleo, desigualdades y derechos laborales, con foco en América Latina y el Caribe. Produce guías y documentos técnicos, y promueve espaci...                         </div>                     </div>                                          <!-- URL SI EXISTE -->                     <div style="text-align: center; margin-top: 8px;"><a href="https://www.ilo.org/es/artificial-intelligence-and-work-digital-economy" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold;">🔗 Ver más información</a></div>                 </div>             </div>             </div>`)[0];
-                popup_59d4612b91730cda7075e7b7d9c9df8d.setContent(html_00806d77d159b0f163ee180d90d679d5);
+                var html_6bf5d825089ab3daf2661d95a52f10f3 = $(`<div id="html_6bf5d825089ab3daf2661d95a52f10f3" style="width: 100.0%; height: 100.0%;">             <div style="width: 380px; font-family: 'Courier New', monospace;                         background: white; border: 2px solid #333; padding: 0; border-radius: 5px;">                                  <!-- TÍTULO -->                 <div style="background: #f0f0f0; padding: 10px; border-bottom: 1px solid #333;                             font-weight: bold; text-align: center; border-radius: 3px 3px 0 0;">                     Caso IA Sindical - Perú                 </div>                                  <!-- CONTENIDO -->                 <div style="padding: 12px; font-size: 13px; line-height: 1.5;">                     <div style="margin-bottom: 4px;">🏢 <strong>Organización:</strong> Organización Internacional del Trabajo (OIT)</div>                     <div style="margin-bottom: 4px;">🤖 <strong>Tipo IA:</strong> No especificado</div>                     <div style="margin-bottom: 4px;">📊 <strong>Estado:</strong> Activo</div>                     <div style="margin-bottom: 4px;">📄 <strong>Fuente:</strong> OIT – Observatorio IA y Trabajo</div>                     <div style="margin-bottom: 8px;">👥 <strong>Actores:</strong> ['Organizaciones Internacionales', 'Sindicatos', 'Gobiernos locales/regionales', 'OIT (Organización Internacional del Trabajo)']</div>                                          <!-- SEPARADOR -->                     <div style="border-top: 1px solid #ccc; margin: 10px 0;"></div>                                          <!-- DESCRIPCIÓN COMPLETA (SIN LÍMITE) -->                     <div style="margin-bottom: 10px;">                         <div style="margin-bottom: 5px;"><strong>📝 Descripción:</strong></div>                         <div style="font-size: 12px; color: #555; line-height: 1.4; text-align: justify;                                     max-height: 150px; overflow-y: auto; padding-right: 5px;">                             Plataforma internacional que estudia los impactos de la IA en empleo, desigualdades y derechos laborales, con foco en América Latina y el Caribe. Produce guías y documentos técnicos, y promueve espacios tripartitos para definir estándares de gobernanza con enfoque de trabajo decente.                         </div>                     </div>                                          <!-- URL SI EXISTE -->                     <div style="text-align: center; margin-top: 8px;"><a href="https://www.ilo.org/es/artificial-intelligence-and-work-digital-economy" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold;">🔗 Ver más información</a></div>                 </div>             </div>             </div>`)[0];
+                popup_eb3ee5c402752b6fe94c5b94e2e3ef98.setContent(html_6bf5d825089ab3daf2661d95a52f10f3);
             
         
 
-        marker_cf7229231b34bbd55433de8d6be05f41.bindPopup(popup_59d4612b91730cda7075e7b7d9c9df8d)
+        marker_913532e6af49573eb91dcdc29c2fc305.bindPopup(popup_eb3ee5c402752b6fe94c5b94e2e3ef98)
         ;
 
         
     
     
-            marker_cf7229231b34bbd55433de8d6be05f41.bindTooltip(
+            marker_913532e6af49573eb91dcdc29c2fc305.bindTooltip(
                 `<div>
                      Sin título - Perú
                  </div>`,
@@ -303,17 +305,17 @@
             );
         
     
-                marker_cf7229231b34bbd55433de8d6be05f41.setIcon(icon_8f1a299a273d6875770262c77c2d972a);
+                marker_913532e6af49573eb91dcdc29c2fc305.setIcon(icon_a31f5b703b36766b38f1ad7f49c30bc9);
             
     
-            var marker_61008d6cb2dc4d069c153944878dc651 = L.marker(
+            var marker_4bfe56ff7c2a41f340b9c7cc82b25fde = L.marker(
                 [-34.6118, -58.396],
                 {
 }
-            ).addTo(map_30a7aba811f71e9cfe51e0bbf8158cef);
+            ).addTo(map_355f6deae9be63ca9f6d2a9dbeb800aa);
         
     
-            var icon_2f13a5288437c8ee4ea575f1fcbdf3ee = L.AwesomeMarkers.icon(
+            var icon_14508b47ee87432ce39074ab67c50e7a = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -324,24 +326,24 @@
             );
         
     
-        var popup_95a41dae0b3895b2d6de9e508a13861c = L.popup({
-  "maxWidth": 370,
+        var popup_c728660b9c3a22d6411f871c99f1a70b = L.popup({
+  "maxWidth": 400,
 });
 
         
             
-                var html_412496c9a86b6eee72cfaaebbeb64d46 = $(`<div id="html_412496c9a86b6eee72cfaaebbeb64d46" style="width: 100.0%; height: 100.0%;">             <div style="width: 350px; font-family: 'Courier New', monospace;                         background: white; border: 2px solid #333; padding: 0; border-radius: 5px;">                                  <!-- TÍTULO CON BORDE -->                 <div style="background: #f0f0f0; padding: 10px; border-bottom: 1px solid #333;                             font-weight: bold; text-align: center; border-radius: 3px 3px 0 0;">                     Caso IA Sindical - Argentina                 </div>                                  <!-- CONTENIDO PRINCIPAL -->                 <div style="padding: 12px; font-size: 13px; line-height: 1.5;">                     <div style="margin-bottom: 4px;">🏢 <strong>Organización:</strong> Fundación de Inteligencia Artificial del Sindicato del Seguro</div>                     <div style="margin-bottom: 4px;">🤖 <strong>Tipo IA:</strong> No especificado</div>                     <div style="margin-bottom: 4px;">📊 <strong>Estado:</strong> Activo</div>                     <div style="margin-bottom: 4px;">📄 <strong>Fuente:</strong> Fundación de Inteligencia Artificial (IAF) del Sindicato del Seguro</div>                     <div style="margin-bottom: 8px;">👥 <strong>Actores:</strong> ['Sindicatos', 'Empresas del sector (empleadoras)', 'Gobiernos locales/regionales']</div>                                          <!-- SEPARADOR -->                     <div style="border-top: 1px solid #ccc; margin: 10px 0;"></div>                                          <!-- DESCRIPCIÓN -->                     <div style="margin-bottom: 10px;">                         <div style="margin-bottom: 5px;"><strong>📝 Descripción:</strong></div>                         <div style="font-size: 12px; color: #555; line-height: 1.4; text-align: justify;">                             Programa gratuito de capacitación en IA aplicada, productividad, innovación y creatividad. Incluye conversatorios con expertos en tecnología, educación y derecho laboral, y fomenta alianzas estratégic...                         </div>                     </div>                                          <!-- URL SI EXISTE -->                     <div style="text-align: center; margin-top: 8px;"><a href="https://www.iaf.ai/" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold;">🔗 Ver más información</a></div>                 </div>             </div>             </div>`)[0];
-                popup_95a41dae0b3895b2d6de9e508a13861c.setContent(html_412496c9a86b6eee72cfaaebbeb64d46);
+                var html_f14f4e75e39c9208e2be9683473e7889 = $(`<div id="html_f14f4e75e39c9208e2be9683473e7889" style="width: 100.0%; height: 100.0%;">             <div style="width: 380px; font-family: 'Courier New', monospace;                         background: white; border: 2px solid #333; padding: 0; border-radius: 5px;">                                  <!-- TÍTULO -->                 <div style="background: #f0f0f0; padding: 10px; border-bottom: 1px solid #333;                             font-weight: bold; text-align: center; border-radius: 3px 3px 0 0;">                     Caso IA Sindical - Argentina                 </div>                                  <!-- CONTENIDO -->                 <div style="padding: 12px; font-size: 13px; line-height: 1.5;">                     <div style="margin-bottom: 4px;">🏢 <strong>Organización:</strong> Fundación de Inteligencia Artificial del Sindicato del Seguro</div>                     <div style="margin-bottom: 4px;">🤖 <strong>Tipo IA:</strong> No especificado</div>                     <div style="margin-bottom: 4px;">📊 <strong>Estado:</strong> Activo</div>                     <div style="margin-bottom: 4px;">📄 <strong>Fuente:</strong> Fundación de Inteligencia Artificial (IAF) del Sindicato del Seguro</div>                     <div style="margin-bottom: 8px;">👥 <strong>Actores:</strong> ['Sindicatos', 'Empresas del sector (empleadoras)', 'Gobiernos locales/regionales']</div>                                          <!-- SEPARADOR -->                     <div style="border-top: 1px solid #ccc; margin: 10px 0;"></div>                                          <!-- DESCRIPCIÓN COMPLETA (SIN LÍMITE) -->                     <div style="margin-bottom: 10px;">                         <div style="margin-bottom: 5px;"><strong>📝 Descripción:</strong></div>                         <div style="font-size: 12px; color: #555; line-height: 1.4; text-align: justify;                                     max-height: 150px; overflow-y: auto; padding-right: 5px;">                             Programa gratuito de capacitación en IA aplicada, productividad, innovación y creatividad. Incluye conversatorios con expertos en tecnología, educación y derecho laboral, y fomenta alianzas estratégicas para investigar y difundir el impacto de la IA en el trabajo.                         </div>                     </div>                                          <!-- URL SI EXISTE -->                     <div style="text-align: center; margin-top: 8px;"><a href="https://www.iaf.ai/" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold;">🔗 Ver más información</a></div>                 </div>             </div>             </div>`)[0];
+                popup_c728660b9c3a22d6411f871c99f1a70b.setContent(html_f14f4e75e39c9208e2be9683473e7889);
             
         
 
-        marker_61008d6cb2dc4d069c153944878dc651.bindPopup(popup_95a41dae0b3895b2d6de9e508a13861c)
+        marker_4bfe56ff7c2a41f340b9c7cc82b25fde.bindPopup(popup_c728660b9c3a22d6411f871c99f1a70b)
         ;
 
         
     
     
-            marker_61008d6cb2dc4d069c153944878dc651.bindTooltip(
+            marker_4bfe56ff7c2a41f340b9c7cc82b25fde.bindTooltip(
                 `<div>
                      Sin título - Argentina
                  </div>`,
@@ -351,7 +353,7 @@
             );
         
     
-                marker_61008d6cb2dc4d069c153944878dc651.setIcon(icon_2f13a5288437c8ee4ea575f1fcbdf3ee);
+                marker_4bfe56ff7c2a41f340b9c7cc82b25fde.setIcon(icon_14508b47ee87432ce39074ab67c50e7a);
             
 </script>
 </html>

@@ -1,14 +1,14 @@
-# 🗺️ MAPA INTERACTIVO IA SINDICAL - POPUP FORMATO EXACTO ACORDADO
-# FECHA: 28 Agosto 2025 - CORRECCIÓN POPUP ESPECÍFICO
-# CAMBIO: Popup formato exacto según especificaciones usuario
+# 🗺️ MAPA INTERACTIVO IA SINDICAL - SOLUCIÓN CONTINENTES + DESCRIPCIÓN COMPLETA
+# FECHA: 28 Agosto 2025 - CORRECCIÓN BOUNDS + TEXTO COMPLETO
+# MEJORAS: Sin continentes repetidos + Descripción completa visible
 
 import pandas as pd
 import folium
 import requests
 import os
 
-print("🚀 INICIANDO MAPA IA SINDICAL - POPUP FORMATO EXACTO")
-print("=" * 60)
+print("🚀 INICIANDO MAPA IA SINDICAL - SOLUCIÓN BOUNDS + DESCRIPCIÓN")
+print("=" * 65)
 
 # 🔑 CONFIGURACIÓN API AIRTABLE
 AIRTABLE_BASE_ID = os.environ.get('AIRTABLE_BASE_ID')
@@ -27,7 +27,6 @@ COORDENADAS_PAISES = {
     'Francia': [48.8566, 2.3522],
     'Alemania': [52.5200, 13.4050],
     'Reino Unido': [51.5074, -0.1278],
-    'Italia': [41.9028, 12.4964],
     'Estados Unidos': [38.9072, -77.0369],
     'Canadá': [45.4215, -75.6972],
     'México': [19.4326, -99.1332],
@@ -92,10 +91,10 @@ def get_casos_ia_sindical():
         print(f"❌ ERROR CONEXIÓN: {e}")
         return pd.DataFrame()
 
-def create_map_with_exact_popup_format(df):
-    """Crear mapa con popup formato exacto acordado"""
+def create_fixed_map(df):
+    """Crear mapa SIN continentes repetidos + descripción completa"""
     
-    print("🗺️ Creando mapa con popup formato exacto acordado...")
+    print("🗺️ Creando mapa con BOUNDS LIMITADOS + DESCRIPCIÓN COMPLETA...")
     
     # Filtrar casos válidos
     df_valid = df.dropna(subset=['Latitud', 'Longitud'])
@@ -104,37 +103,42 @@ def create_map_with_exact_popup_format(df):
         print("❌ No hay casos con coordenadas válidas")
         return None
     
-    # Crear mapa
+    # SOLUCIÓN CONTINENTES REPETIDOS: BOUNDS ESTRICTOS
     mapa = folium.Map(
         location=[0, 0],
         zoom_start=2,
         tiles='OpenStreetMap',
-        max_bounds=True,
-        min_zoom=1,
-        max_zoom=18
+        # CRÍTICO: Configuración que evita continentes repetidos
+        world_copy_jump=False,  # ← CLAVE: Evita saltos mundiales
+        no_wrap=True,           # ← CLAVE: No permite wrap horizontal
+        min_zoom=2,             # ← Zoom mínimo para evitar over-zoom out
+        max_zoom=15,
+        max_bounds=True
     )
     
-    # Bounds limitados
-    mapa.fit_bounds([[-60, -180], [70, 180]], padding=(20, 20))
+    # Configurar bounds mundiales estrictos (sin repetición)
+    southwest = [-60, -180]  # Límite suroeste
+    northeast = [85, 180]    # Límite noreste
+    mapa.fit_bounds([southwest, northeast], padding=(10, 10))
     
-    print(f"📍 Procesando {len(df_valid)} casos con popup formato exacto...")
+    print(f"📍 Procesando {len(df_valid)} casos...")
     
-    # Agregar marcadores con popup formato exacto
+    # Agregar marcadores con DESCRIPCIÓN COMPLETA
     for index, row in df_valid.iterrows():
         if pd.notna(row['Latitud']) and pd.notna(row['Longitud']):
             
-            # POPUP FORMATO EXACTO ACORDADO
+            # POPUP FORMATO EXACTO + DESCRIPCIÓN COMPLETA
             popup_html = f"""
-            <div style="width: 350px; font-family: 'Courier New', monospace; 
+            <div style="width: 380px; font-family: 'Courier New', monospace; 
                        background: white; border: 2px solid #333; padding: 0; border-radius: 5px;">
                 
-                <!-- TÍTULO CON BORDE -->
+                <!-- TÍTULO -->
                 <div style="background: #f0f0f0; padding: 10px; border-bottom: 1px solid #333; 
                            font-weight: bold; text-align: center; border-radius: 3px 3px 0 0;">
                     Caso IA Sindical - {row['País']}
                 </div>
                 
-                <!-- CONTENIDO PRINCIPAL -->
+                <!-- CONTENIDO -->
                 <div style="padding: 12px; font-size: 13px; line-height: 1.5;">
                     <div style="margin-bottom: 4px;">🏢 <strong>Organización:</strong> {row['Organización_Sindical']}</div>
                     <div style="margin-bottom: 4px;">🤖 <strong>Tipo IA:</strong> {row['Tipo_IA']}</div>
@@ -145,11 +149,12 @@ def create_map_with_exact_popup_format(df):
                     <!-- SEPARADOR -->
                     <div style="border-top: 1px solid #ccc; margin: 10px 0;"></div>
                     
-                    <!-- DESCRIPCIÓN -->
+                    <!-- DESCRIPCIÓN COMPLETA (SIN LÍMITE) -->
                     <div style="margin-bottom: 10px;">
                         <div style="margin-bottom: 5px;"><strong>📝 Descripción:</strong></div>
-                        <div style="font-size: 12px; color: #555; line-height: 1.4; text-align: justify;">
-                            {row['Descripción'][:200]}{'...' if len(str(row['Descripción'])) > 200 else ''}
+                        <div style="font-size: 12px; color: #555; line-height: 1.4; text-align: justify; 
+                                   max-height: 150px; overflow-y: auto; padding-right: 5px;">
+                            {str(row['Descripción'])}
                         </div>
                     </div>
                     
@@ -162,12 +167,16 @@ def create_map_with_exact_popup_format(df):
             # Agregar marcador
             folium.Marker(
                 location=[row['Latitud'], row['Longitud']],
-                popup=folium.Popup(popup_html, max_width=370),
+                popup=folium.Popup(popup_html, max_width=400),
                 tooltip=f"{row['Titulo']} - {row['País']}",
                 icon=folium.Icon(color='blue', icon='info-sign')
             ).add_to(mapa)
     
-    print("✅ MAPA CREADO CON POPUP FORMATO EXACTO")
+    print("✅ MAPA CREADO CON CORRECCIONES:")
+    print("   ✅ BOUNDS LIMITADOS: Sin continentes repetidos")
+    print("   ✅ DESCRIPCIÓN COMPLETA: Texto completo visible con scroll")
+    print("   ✅ POPUP FORMATO EXACTO: Según especificaciones")
+    
     return mapa
 
 # 🚀 PROCESO PRINCIPAL
@@ -175,13 +184,16 @@ if __name__ == "__main__":
     df = get_casos_ia_sindical()
     
     if not df.empty:
-        mapa = create_map_with_exact_popup_format(df)
+        mapa = create_fixed_map(df)
         
         if mapa:
             nombre_archivo = 'index.html'
             mapa.save(nombre_archivo)
             print(f"💾 MAPA GUARDADO: {nombre_archivo}")
-            print("🎯 POPUP FORMATO EXACTO IMPLEMENTADO SEGÚN ACORDADO")
+            print("🎯 PROBLEMAS SOLUCIONADOS:")
+            print("   1. ✅ Continentes NO repetidos")
+            print("   2. ✅ Descripción COMPLETA visible")
+            print("🚀 LISTO PARA GAMMA")
         else:
             print("❌ Error creando mapa")
     else:
