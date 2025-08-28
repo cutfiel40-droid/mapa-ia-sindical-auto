@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_3afd5c0e2d339ae1ffe6965af16d0301 {
+                #map_cde6541044788a36b9d5422c3c46962f {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -54,19 +54,29 @@
 <body>
     
     
-            <div class="folium-map" id="map_3afd5c0e2d339ae1ffe6965af16d0301" ></div>
+            <div class="folium-map" id="map_cde6541044788a36b9d5422c3c46962f" ></div>
         
 </body>
 <script>
     
     
-            var map_3afd5c0e2d339ae1ffe6965af16d0301 = L.map(
-                "map_3afd5c0e2d339ae1ffe6965af16d0301",
+            var map_cde6541044788a36b9d5422c3c46962f = L.map(
+                "map_cde6541044788a36b9d5422c3c46962f",
                 {
-                    center: [3.206699999999999, -38.205859999999994],
+                    center: [0.0, 0.0],
                     crs: L.CRS.EPSG3857,
                     ...{
-  "zoom": 3,
+  "maxBounds": [
+[
+-90,
+-180,
+],
+[
+90,
+180,
+],
+],
+  "zoom": 2,
   "zoomControl": true,
   "preferCanvas": false,
 }
@@ -78,12 +88,12 @@
 
         
     
-            var tile_layer_4d31fa59d5df6db0fdf70b71681a6430 = L.tileLayer(
+            var tile_layer_e40a1661713119e33caf7d52a4c54091 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
-  "minZoom": 0,
-  "maxZoom": 19,
-  "maxNativeZoom": 19,
+  "minZoom": 1,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
   "noWrap": false,
   "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
   "subdomains": "abc",
@@ -95,209 +105,23 @@
             );
         
     
-            tile_layer_4d31fa59d5df6db0fdf70b71681a6430.addTo(map_3afd5c0e2d339ae1ffe6965af16d0301);
+            tile_layer_e40a1661713119e33caf7d52a4c54091.addTo(map_cde6541044788a36b9d5422c3c46962f);
         
     
-            var marker_ee9adde73b53e84fa2c60f822e79cd18 = L.marker(
+            map_cde6541044788a36b9d5422c3c46962f.fitBounds(
+                [[-60, -180], [70, 180]],
+                {"padding": [20, 20]}
+            );
+        
+    
+            var marker_d84435446af4b4f385e3077c8077ddfd = L.marker(
                 [41.6523, -4.245],
                 {
 }
-            ).addTo(map_3afd5c0e2d339ae1ffe6965af16d0301);
+            ).addTo(map_cde6541044788a36b9d5422c3c46962f);
         
     
-            var icon_ebce98092083e542653509477807f45f = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "gray",
-  "iconColor": "white",
-  "icon": "info-sign",
-  "prefix": "glyphicon",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_4764ed6da33f353ee6046ecb027c12d0 = L.popup({
-  "maxWidth": 350,
-});
-
-        
-            
-                var html_47bd61c4ef19ffc455ca5819975e6435 = $(`<div id="html_47bd61c4ef19ffc455ca5819975e6435" style="width: 100.0%; height: 100.0%;">             <div style="width: 300px; font-family: Arial;">                 <h3 style="color: #2E86AB; margin-bottom: 10px;">XXIX Convenio Colectivo de El Norte de Castilla (2021-2023)</h3>                 <div style="background: #f8f9fa; padding: 10px; border-radius: 5px;">                     <strong>🌍 País:</strong> España<br>                     <strong>🏢 Organización:</strong> Comité de Empresa El Norte de Castilla<br>                     <strong>🤖 Tipo IA:</strong> Otros                 </div>             </div>             </div>`)[0];
-                popup_4764ed6da33f353ee6046ecb027c12d0.setContent(html_47bd61c4ef19ffc455ca5819975e6435);
-            
-        
-
-        marker_ee9adde73b53e84fa2c60f822e79cd18.bindPopup(popup_4764ed6da33f353ee6046ecb027c12d0)
-        ;
-
-        
-    
-    
-            marker_ee9adde73b53e84fa2c60f822e79cd18.bindTooltip(
-                `<div>
-                     XXIX Convenio Colectivo de El Norte de Castilla (2021-2023)
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_ee9adde73b53e84fa2c60f822e79cd18.setIcon(icon_ebce98092083e542653509477807f45f);
-            
-    
-            var marker_5e8794cebe426f1e1adb33fe9b625ef4 = L.marker(
-                [51.074, -0.1278],
-                {
-}
-            ).addTo(map_3afd5c0e2d339ae1ffe6965af16d0301);
-        
-    
-            var icon_ef0fbee517e3ecb71d16cb7d6a945395 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "gray",
-  "iconColor": "white",
-  "icon": "info-sign",
-  "prefix": "glyphicon",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_0ad135d52b345611384c7d81e9efe298 = L.popup({
-  "maxWidth": 350,
-});
-
-        
-            
-                var html_af352cc9a2dc155c227d3d29f307d22a = $(`<div id="html_af352cc9a2dc155c227d3d29f307d22a" style="width: 100.0%; height: 100.0%;">             <div style="width: 300px; font-family: Arial;">                 <h3 style="color: #2E86AB; margin-bottom: 10px;">The Centre for Responsible Union AI (Agile Unions)</h3>                 <div style="background: #f8f9fa; padding: 10px; border-radius: 5px;">                     <strong>🌍 País:</strong> Reino Unido<br>                     <strong>🏢 Organización:</strong> Unions 21<br>                     <strong>🤖 Tipo IA:</strong> Otros                 </div>             </div>             </div>`)[0];
-                popup_0ad135d52b345611384c7d81e9efe298.setContent(html_af352cc9a2dc155c227d3d29f307d22a);
-            
-        
-
-        marker_5e8794cebe426f1e1adb33fe9b625ef4.bindPopup(popup_0ad135d52b345611384c7d81e9efe298)
-        ;
-
-        
-    
-    
-            marker_5e8794cebe426f1e1adb33fe9b625ef4.bindTooltip(
-                `<div>
-                     The Centre for Responsible Union AI (Agile Unions)
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_5e8794cebe426f1e1adb33fe9b625ef4.setIcon(icon_ef0fbee517e3ecb71d16cb7d6a945395);
-            
-    
-            var marker_dcbdc34bd44c4b00dfead5d54d062520 = L.marker(
-                [-30.0346, -51.2177],
-                {
-}
-            ).addTo(map_3afd5c0e2d339ae1ffe6965af16d0301);
-        
-    
-            var icon_5aedd0a6af883997ad824a08148808dc = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "green",
-  "iconColor": "white",
-  "icon": "info-sign",
-  "prefix": "glyphicon",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_9e50b6fedd97cda002357130535e8182 = L.popup({
-  "maxWidth": 350,
-});
-
-        
-            
-                var html_003544f13ca99b0d99008da747906992 = $(`<div id="html_003544f13ca99b0d99008da747906992" style="width: 100.0%; height: 100.0%;">             <div style="width: 300px; font-family: Arial;">                 <h3 style="color: #2E86AB; margin-bottom: 10px;">Acuerdo Sindimoto-RS – iFood (Brasil)</h3>                 <div style="background: #f8f9fa; padding: 10px; border-radius: 5px;">                     <strong>🌍 País:</strong> Brasil<br>                     <strong>🏢 Organización:</strong> Sindimoto-RS<br>                     <strong>🤖 Tipo IA:</strong> Automatización                 </div>             </div>             </div>`)[0];
-                popup_9e50b6fedd97cda002357130535e8182.setContent(html_003544f13ca99b0d99008da747906992);
-            
-        
-
-        marker_dcbdc34bd44c4b00dfead5d54d062520.bindPopup(popup_9e50b6fedd97cda002357130535e8182)
-        ;
-
-        
-    
-    
-            marker_dcbdc34bd44c4b00dfead5d54d062520.bindTooltip(
-                `<div>
-                     Acuerdo Sindimoto-RS – iFood (Brasil)
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_dcbdc34bd44c4b00dfead5d54d062520.setIcon(icon_5aedd0a6af883997ad824a08148808dc);
-            
-    
-            var marker_d168cfd7f37cf2d722a4532f230fd26e = L.marker(
-                [-12.0464, -77.0428],
-                {
-}
-            ).addTo(map_3afd5c0e2d339ae1ffe6965af16d0301);
-        
-    
-            var icon_d7855a16eed5770112cbe923038f2b5d = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "gray",
-  "iconColor": "white",
-  "icon": "info-sign",
-  "prefix": "glyphicon",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_c558bb475966574dd8e1b9de02775fa3 = L.popup({
-  "maxWidth": 350,
-});
-
-        
-            
-                var html_a7956fd9755e539e3a721a07171fba0b = $(`<div id="html_a7956fd9755e539e3a721a07171fba0b" style="width: 100.0%; height: 100.0%;">             <div style="width: 300px; font-family: Arial;">                 <h3 style="color: #2E86AB; margin-bottom: 10px;">Observatorio de la OIT sobre IA y Trabajo</h3>                 <div style="background: #f8f9fa; padding: 10px; border-radius: 5px;">                     <strong>🌍 País:</strong> Perú<br>                     <strong>🏢 Organización:</strong> Organización Internacional del Trabajo (OIT)<br>                     <strong>🤖 Tipo IA:</strong> Procesamiento de Datos                 </div>             </div>             </div>`)[0];
-                popup_c558bb475966574dd8e1b9de02775fa3.setContent(html_a7956fd9755e539e3a721a07171fba0b);
-            
-        
-
-        marker_d168cfd7f37cf2d722a4532f230fd26e.bindPopup(popup_c558bb475966574dd8e1b9de02775fa3)
-        ;
-
-        
-    
-    
-            marker_d168cfd7f37cf2d722a4532f230fd26e.bindTooltip(
-                `<div>
-                     Observatorio de la OIT sobre IA y Trabajo
-                 </div>`,
-                {
-  "sticky": true,
-}
-            );
-        
-    
-                marker_d168cfd7f37cf2d722a4532f230fd26e.setIcon(icon_d7855a16eed5770112cbe923038f2b5d);
-            
-    
-            var marker_da985009de5d5e614156156d4ed5b8fa = L.marker(
-                [-34.6118, -58.396],
-                {
-}
-            ).addTo(map_3afd5c0e2d339ae1ffe6965af16d0301);
-        
-    
-            var icon_f0fae533c2383f57a6fb8f0493ab9732 = L.AwesomeMarkers.icon(
+            var icon_8b493b835fc1405ae8799496d85f7bd4 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -308,26 +132,26 @@
             );
         
     
-        var popup_efd4292ae75c45ac2e733c4d0e950f7d = L.popup({
+        var popup_8d365330a412316924b2e67df6807745 = L.popup({
   "maxWidth": 350,
 });
 
         
             
-                var html_3007c2e28d446da22b8da0a5acf4fa9c = $(`<div id="html_3007c2e28d446da22b8da0a5acf4fa9c" style="width: 100.0%; height: 100.0%;">             <div style="width: 300px; font-family: Arial;">                 <h3 style="color: #2E86AB; margin-bottom: 10px;">Programa Anual de Capacitación en Inteligencia Artificial del Sindicato del Seguro</h3>                 <div style="background: #f8f9fa; padding: 10px; border-radius: 5px;">                     <strong>🌍 País:</strong> Argentina<br>                     <strong>🏢 Organización:</strong> Fundación de Inteligencia Artificial del Sindicato del Seguro<br>                     <strong>🤖 Tipo IA:</strong> Machine Learning                 </div>             </div>             </div>`)[0];
-                popup_efd4292ae75c45ac2e733c4d0e950f7d.setContent(html_3007c2e28d446da22b8da0a5acf4fa9c);
+                var html_4ae52bed5ff7892e288f0b77ee4c174a = $(`<div id="html_4ae52bed5ff7892e288f0b77ee4c174a" style="width: 100.0%; height: 100.0%;">             <div style="width: 320px; font-family: Arial, sans-serif;">                 <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);                             color: white; padding: 15px; margin: -10px -10px 10px -10px;                             border-radius: 8px 8px 0 0;">                     <h3 style="margin: 0; font-size: 16px; font-weight: bold;">                         Sin título                     </h3>                 </div>                                  <div style="padding: 10px;">                     <p style="margin: 8px 0; font-size: 14px;">                         <strong>🌍 País:</strong> España                     </p>                     <p style="margin: 8px 0; font-size: 14px;">                         <strong>🏢 Organización:</strong> Comité de Empresa El Norte de Castilla                     </p>                     <p style="margin: 8px 0; font-size: 14px;">                         <strong>🤖 Tipo IA:</strong> No especificado                     </p>                     <p style="margin: 8px 0; font-size: 14px;">                         <strong>📅 Fecha:</strong> 2021-01-01                     </p>                     <p style="margin: 8px 0; font-size: 14px;">                         <strong>📧 Contacto:</strong> No disponible                     </p>                                  <p style="margin: 8px 0; font-size: 14px;">                         <strong>🔗 Más información:</strong>                          <a href="https://www.convenioscolectivos.net/el-norte-de-castilla-s-a/" target="_blank" style="color: #667eea; text-decoration: none;">                             Ver detalles →                         </a>                     </p>                                  </div>             </div>             </div>`)[0];
+                popup_8d365330a412316924b2e67df6807745.setContent(html_4ae52bed5ff7892e288f0b77ee4c174a);
             
         
 
-        marker_da985009de5d5e614156156d4ed5b8fa.bindPopup(popup_efd4292ae75c45ac2e733c4d0e950f7d)
+        marker_d84435446af4b4f385e3077c8077ddfd.bindPopup(popup_8d365330a412316924b2e67df6807745)
         ;
 
         
     
     
-            marker_da985009de5d5e614156156d4ed5b8fa.bindTooltip(
+            marker_d84435446af4b4f385e3077c8077ddfd.bindTooltip(
                 `<div>
-                     Programa Anual de Capacitación en Inteligencia Artificial del Sindicato del Seguro
+                     Sin título - España
                  </div>`,
                 {
   "sticky": true,
@@ -335,7 +159,199 @@
             );
         
     
-                marker_da985009de5d5e614156156d4ed5b8fa.setIcon(icon_f0fae533c2383f57a6fb8f0493ab9732);
+                marker_d84435446af4b4f385e3077c8077ddfd.setIcon(icon_8b493b835fc1405ae8799496d85f7bd4);
+            
+    
+            var marker_17cb18495e0aed128e18f612813da90c = L.marker(
+                [51.074, -0.1278],
+                {
+}
+            ).addTo(map_cde6541044788a36b9d5422c3c46962f);
+        
+    
+            var icon_73fdf94a115d37bb59db07d6e6182c08 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_49cd1d2bd8cd0f0638af3384106794b0 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_0cfb6ccaae66d02aab3c8ad973f9011a = $(`<div id="html_0cfb6ccaae66d02aab3c8ad973f9011a" style="width: 100.0%; height: 100.0%;">             <div style="width: 320px; font-family: Arial, sans-serif;">                 <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);                             color: white; padding: 15px; margin: -10px -10px 10px -10px;                             border-radius: 8px 8px 0 0;">                     <h3 style="margin: 0; font-size: 16px; font-weight: bold;">                         Sin título                     </h3>                 </div>                                  <div style="padding: 10px;">                     <p style="margin: 8px 0; font-size: 14px;">                         <strong>🌍 País:</strong> Reino Unido                     </p>                     <p style="margin: 8px 0; font-size: 14px;">                         <strong>🏢 Organización:</strong> Unions 21                     </p>                     <p style="margin: 8px 0; font-size: 14px;">                         <strong>🤖 Tipo IA:</strong> No especificado                     </p>                     <p style="margin: 8px 0; font-size: 14px;">                         <strong>📅 Fecha:</strong> 2024-01-01                     </p>                     <p style="margin: 8px 0; font-size: 14px;">                         <strong>📧 Contacto:</strong> No disponible                     </p>                                  <p style="margin: 8px 0; font-size: 14px;">                         <strong>🔗 Más información:</strong>                          <a href="https://www.agileunions.ai/" target="_blank" style="color: #667eea; text-decoration: none;">                             Ver detalles →                         </a>                     </p>                                  </div>             </div>             </div>`)[0];
+                popup_49cd1d2bd8cd0f0638af3384106794b0.setContent(html_0cfb6ccaae66d02aab3c8ad973f9011a);
+            
+        
+
+        marker_17cb18495e0aed128e18f612813da90c.bindPopup(popup_49cd1d2bd8cd0f0638af3384106794b0)
+        ;
+
+        
+    
+    
+            marker_17cb18495e0aed128e18f612813da90c.bindTooltip(
+                `<div>
+                     Sin título - Reino Unido
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_17cb18495e0aed128e18f612813da90c.setIcon(icon_73fdf94a115d37bb59db07d6e6182c08);
+            
+    
+            var marker_4594bd3fcbf45ec5555a8fd447e9af1d = L.marker(
+                [-30.0346, -51.2177],
+                {
+}
+            ).addTo(map_cde6541044788a36b9d5422c3c46962f);
+        
+    
+            var icon_c456a281d2277ec043b9554e5a194440 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4ceeebfbbbdad576a09e667643e64948 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_4f188d5b108738e45157b2be4a3053db = $(`<div id="html_4f188d5b108738e45157b2be4a3053db" style="width: 100.0%; height: 100.0%;">             <div style="width: 320px; font-family: Arial, sans-serif;">                 <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);                             color: white; padding: 15px; margin: -10px -10px 10px -10px;                             border-radius: 8px 8px 0 0;">                     <h3 style="margin: 0; font-size: 16px; font-weight: bold;">                         Sin título                     </h3>                 </div>                                  <div style="padding: 10px;">                     <p style="margin: 8px 0; font-size: 14px;">                         <strong>🌍 País:</strong> Brasil                     </p>                     <p style="margin: 8px 0; font-size: 14px;">                         <strong>🏢 Organización:</strong> Sindimoto-RS                     </p>                     <p style="margin: 8px 0; font-size: 14px;">                         <strong>🤖 Tipo IA:</strong> No especificado                     </p>                     <p style="margin: 8px 0; font-size: 14px;">                         <strong>📅 Fecha:</strong> 2024-03-15                     </p>                     <p style="margin: 8px 0; font-size: 14px;">                         <strong>📧 Contacto:</strong> No disponible                     </p>                                  <p style="margin: 8px 0; font-size: 14px;">                         <strong>🔗 Más información:</strong>                          <a href="https://www.ctb.org.br/2024/03/07/sindimoto-rs-celebra-acordo-com-ifood-que-melhora-condicoes-de-motofrete/" target="_blank" style="color: #667eea; text-decoration: none;">                             Ver detalles →                         </a>                     </p>                                  </div>             </div>             </div>`)[0];
+                popup_4ceeebfbbbdad576a09e667643e64948.setContent(html_4f188d5b108738e45157b2be4a3053db);
+            
+        
+
+        marker_4594bd3fcbf45ec5555a8fd447e9af1d.bindPopup(popup_4ceeebfbbbdad576a09e667643e64948)
+        ;
+
+        
+    
+    
+            marker_4594bd3fcbf45ec5555a8fd447e9af1d.bindTooltip(
+                `<div>
+                     Sin título - Brasil
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4594bd3fcbf45ec5555a8fd447e9af1d.setIcon(icon_c456a281d2277ec043b9554e5a194440);
+            
+    
+            var marker_b175c9133c3b8b3a48e650dc74a8ec79 = L.marker(
+                [-12.0464, -77.0428],
+                {
+}
+            ).addTo(map_cde6541044788a36b9d5422c3c46962f);
+        
+    
+            var icon_a94a4cf7356a183f3200e35b87f39737 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_850560970e3e46f356d032153a8da0a0 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_aafc7e93dc8d640f3371f3189098f3c7 = $(`<div id="html_aafc7e93dc8d640f3371f3189098f3c7" style="width: 100.0%; height: 100.0%;">             <div style="width: 320px; font-family: Arial, sans-serif;">                 <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);                             color: white; padding: 15px; margin: -10px -10px 10px -10px;                             border-radius: 8px 8px 0 0;">                     <h3 style="margin: 0; font-size: 16px; font-weight: bold;">                         Sin título                     </h3>                 </div>                                  <div style="padding: 10px;">                     <p style="margin: 8px 0; font-size: 14px;">                         <strong>🌍 País:</strong> Perú                     </p>                     <p style="margin: 8px 0; font-size: 14px;">                         <strong>🏢 Organización:</strong> Organización Internacional del Trabajo (OIT)                     </p>                     <p style="margin: 8px 0; font-size: 14px;">                         <strong>🤖 Tipo IA:</strong> No especificado                     </p>                     <p style="margin: 8px 0; font-size: 14px;">                         <strong>📅 Fecha:</strong> 2025-01-01                     </p>                     <p style="margin: 8px 0; font-size: 14px;">                         <strong>📧 Contacto:</strong> No disponible                     </p>                                  <p style="margin: 8px 0; font-size: 14px;">                         <strong>🔗 Más información:</strong>                          <a href="https://www.ilo.org/es/artificial-intelligence-and-work-digital-economy" target="_blank" style="color: #667eea; text-decoration: none;">                             Ver detalles →                         </a>                     </p>                                  </div>             </div>             </div>`)[0];
+                popup_850560970e3e46f356d032153a8da0a0.setContent(html_aafc7e93dc8d640f3371f3189098f3c7);
+            
+        
+
+        marker_b175c9133c3b8b3a48e650dc74a8ec79.bindPopup(popup_850560970e3e46f356d032153a8da0a0)
+        ;
+
+        
+    
+    
+            marker_b175c9133c3b8b3a48e650dc74a8ec79.bindTooltip(
+                `<div>
+                     Sin título - Perú
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b175c9133c3b8b3a48e650dc74a8ec79.setIcon(icon_a94a4cf7356a183f3200e35b87f39737);
+            
+    
+            var marker_109b349d707fb04e226b13ab08bca07a = L.marker(
+                [-34.6118, -58.396],
+                {
+}
+            ).addTo(map_cde6541044788a36b9d5422c3c46962f);
+        
+    
+            var icon_2aeaae613096c4f8aeb08c497efad4bf = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ea909705b53d6d1c9a065da28d3c155f = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_a1e6da929276813fef79edd69bf65a70 = $(`<div id="html_a1e6da929276813fef79edd69bf65a70" style="width: 100.0%; height: 100.0%;">             <div style="width: 320px; font-family: Arial, sans-serif;">                 <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);                             color: white; padding: 15px; margin: -10px -10px 10px -10px;                             border-radius: 8px 8px 0 0;">                     <h3 style="margin: 0; font-size: 16px; font-weight: bold;">                         Sin título                     </h3>                 </div>                                  <div style="padding: 10px;">                     <p style="margin: 8px 0; font-size: 14px;">                         <strong>🌍 País:</strong> Argentina                     </p>                     <p style="margin: 8px 0; font-size: 14px;">                         <strong>🏢 Organización:</strong> Fundación de Inteligencia Artificial del Sindicato del Seguro                     </p>                     <p style="margin: 8px 0; font-size: 14px;">                         <strong>🤖 Tipo IA:</strong> No especificado                     </p>                     <p style="margin: 8px 0; font-size: 14px;">                         <strong>📅 Fecha:</strong> 2025-01-01                     </p>                     <p style="margin: 8px 0; font-size: 14px;">                         <strong>📧 Contacto:</strong> info@iaf.ai                     </p>                                  <p style="margin: 8px 0; font-size: 14px;">                         <strong>🔗 Más información:</strong>                          <a href="https://www.iaf.ai/" target="_blank" style="color: #667eea; text-decoration: none;">                             Ver detalles →                         </a>                     </p>                                  </div>             </div>             </div>`)[0];
+                popup_ea909705b53d6d1c9a065da28d3c155f.setContent(html_a1e6da929276813fef79edd69bf65a70);
+            
+        
+
+        marker_109b349d707fb04e226b13ab08bca07a.bindPopup(popup_ea909705b53d6d1c9a065da28d3c155f)
+        ;
+
+        
+    
+    
+            marker_109b349d707fb04e226b13ab08bca07a.bindTooltip(
+                `<div>
+                     Sin título - Argentina
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_109b349d707fb04e226b13ab08bca07a.setIcon(icon_2aeaae613096c4f8aeb08c497efad4bf);
             
 </script>
 </html>
