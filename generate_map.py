@@ -6,6 +6,8 @@ import pandas as pd
 import folium
 import requests
 import os
+import json  # ← Agregar esta línea después de "import os"
+
 
 print("🚀 INICIANDO MAPA IA SINDICAL - SOLUCIÓN BOUNDS + DESCRIPCIÓN")
 print("=" * 65)
@@ -382,6 +384,280 @@ def create_fixed_map(df):
     print("   ✅ POPUP FORMATO EXACTO: Según especificaciones")
     
     return mapa
+def crear_filtros_html():
+    """Generar HTML para filtros temáticos"""
+    return """
+    <div id="filtros-panel" style="position: fixed; top: 10px; left: 10px; 
+                                   background: white; border: 2px solid #333; 
+                                   border-radius: 10px; padding: 15px; z-index: 1000; 
+                                   width: 280px; max-height: 500px; overflow-y: auto;
+                                   box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+        <h3 style="margin: 0 0 15px 0; color: #333; text-align: center;">🔍 Filtros Temáticos</h3>
+        
+        <!-- Filtro por País -->
+        <div style="margin-bottom: 12px;">
+            <label style="font-weight: bold; color: #555;">🌍 País:</label>
+            <select id="filtro-pais" onchange="aplicarFiltros()" style="width: 100%; padding: 5px; margin-top: 3px;">
+                <option value="">Todos los países</option>
+            </select>
+        </div>
+        
+        <!-- Filtro por Tipo IA -->
+        <div style="margin-bottom: 12px;">
+            <label style="font-weight: bold; color: #555;">🤖 Tipo de IA:</label>
+            <select id="filtro-tipo-ia" onchange="aplicarFiltros()" style="width: 100%; padding: 5px; margin-top: 3px;">
+                <option value="">Todos los tipos</option>
+            </select>
+        </div>
+        
+        <!-- Filtro por Estado -->
+        <div style="margin-bottom: 12px;">
+            <label style="font-weight: bold; color: #555;">📊 Estado:</label>
+            <select id="filtro-estado" onchange="aplicarFiltros()" style="width: 100%; padding: 5px; margin-top: 3px;">
+                <option value="">Todos los estados</option>
+            </select>
+        </div>
+        
+        <!-- Filtro por Organización -->
+        <div style="margin-bottom: 15px;">
+            <label style="font-weight: bold; color: #555;">🏢 Organización:</label>
+            <select id="filtro-organizacion" onchange="aplicarFiltros()" style="width: 100%; padding: 5px; margin-top: 3px;">
+                <option value="">Todas las organizaciones</option>
+            </select>
+        </div>
+        
+        <!-- Botón Limpiar -->
+        <button onclick="limpiarFiltros()" style="width: 100%; padding: 8px; background: #f0f0f0; 
+                                                   border: 1px solid #ccc; border-radius: 5px; 
+                                                   cursor: pointer; font-weight: bold;">
+            🔄 Limpiar Filtros
+        </button>
+        
+        <!-- Contador casos visibles -->
+        <div id="contador-casos" style="text-align: center; margin-top: 10px; 
+                                       font-size: 12px; color: #666; font-weight: bold;">
+            Mostrando: 0 casos
+        </div>
+    </div>
+    
+    <script>
+    // Variables globales
+    let todosLosMarcadores = [];
+    let mapaGlobal = null;
+    
+    // Función para inicializar filtros
+    function inicializarFiltros(casos, mapa) {
+        mapaGlobal = mapa;
+        
+        // Extraer valores únicos para cada filtro
+        const paises = [...new Set(casos.map(c => c.pais))].sort();
+        const tiposIA = [...new Set(casos.map(c => c.tipo_ia))].sort();
+        const estados = [...new Set(casos.map(c => c.estado))].sort();
+        const organizaciones = [...new Set(casos.map(c => c.organizacion))].sort();
+        
+        // Poblar selectores
+        poblarSelector('filtro-pais', paises);
+        poblarSelector('filtro-tipo-ia', tiposIA);
+        poblarSelector('filtro-estado', estados);
+        poblarSelector('filtro-organizacion', organizaciones);
+        
+        // Actualizar contador inicial
+        actualizarContador(casos.length);
+    }
+    
+    function poblarSelector(idSelector, valores) {
+        const selector = document.getElementById(idSelector);
+        valores.forEach(valor => {
+            if (valor && valor.trim() !== '') {
+                const option = document.createElement('option');
+                option.value = valor;
+                option.textContent = valor;
+                selector.appendChild(option);
+            }
+        });
+    }
+    
+    function aplicarFiltros() {
+        const filtroPais = document.getElementById('filtro-pais').value;
+        const filtroTipoIA = document.getElementById('filtro-tipo-ia').value;
+        const filtroEstado = document.getElementById('filtro-estado').value;
+        const filtroOrganizacion = document.getElementById('filtro-organizacion').value;
+        
+        let casosVisibles = 0;
+        
+        todosLosMarcadores.forEach(marcador => {
+            const datos = marcador.options.datos;
+            let mostrar = true;
+            
+            if (filtroPais && datos.pais !== filtroPais) mostrar = false;
+            if (filtroTipoIA && datos.tipo_ia !== filtroTipoIA) mostrar = false;
+            if (filtroEstado && datos.estado !== filtroEstado) mostrar = false;
+            if (filtroOrganizacion && datos.organizacion !== filtroOrganizacion) mostrar = false;
+            
+            if (mostrar) {
+                mapaGlobal.addLayer(marcador);
+                casosVisibles++;
+            } else {
+                mapaGlobal.removeLayer(marcador);
+            }
+        });
+        
+        actualizarContador(casosVisibles);
+    }
+    
+    function limpiarFiltros() {
+        document.getElementById('filtro-pais').value = '';
+        document.getElementById('filtro-tipo-ia').value = '';
+        document.getElementById('filtro-estado').value = '';
+        document.getElementById('filtro-organizacion').value = '';
+        
+        // Mostrar todos los marcadores
+        todosLosMarcadores.forEach(marcador => {
+            mapaGlobal.addLayer(marcador);
+        });
+        
+        actualizarContador(todosLosMarcadores.length);
+    }
+    
+    function actualizarContador(cantidad) {
+        document.getElementById('contador-casos').textContent = `Mostrando: ${cantidad} casos`;
+    }
+    </script>
+    """
+
+def create_fixed_map_with_filters(df):
+    """Crear mapa CON filtros temáticos integrados"""
+    
+    print("🗺️ Creando mapa CON FILTROS TEMÁTICOS...")
+    
+    # Filtrar casos válidos
+    df_valid = df.dropna(subset=['Latitud', 'Longitud'])
+    
+    if len(df_valid) == 0:
+        print("❌ No hay casos con coordenadas válidas")
+        return None
+    
+    # Crear mapa base
+    mapa = folium.Map(
+        location=[0, 0],
+        zoom_start=2,
+        tiles='OpenStreetMap',
+        world_copy_jump=False,
+        no_wrap=True,
+        min_zoom=2,
+        max_zoom=15,
+        max_bounds=True
+    )
+    
+    # Configurar bounds mundiales
+    southwest = [-60, -180]
+    northeast = [85, 180]
+    mapa.fit_bounds([southwest, northeast], padding=(10, 10))
+    
+    print(f"📍 Procesando {len(df_valid)} casos con filtros...")
+    
+    # Lista para JavaScript
+    casos_js = []
+    
+    # Agregar marcadores
+    for index, row in df_valid.iterrows():
+        if pd.notna(row['Latitud']) and pd.notna(row['Longitud']):
+            
+            # Popup HTML (mismo formato que antes)
+            popup_html = f"""
+            <div style="width: 380px; font-family: 'Courier New', monospace; 
+                       background: white; border: 2px solid #333; padding: 0; border-radius: 5px;">
+                
+                <div style="background: #f0f0f0; padding: 10px; border-bottom: 1px solid #333; 
+                           font-weight: bold; text-align: center; border-radius: 3px 3px 0 0;">
+                    Caso IA Sindical - {row['País']}
+                </div>
+                
+                <div style="padding: 12px; font-size: 13px; line-height: 1.5;">
+                    <div style="margin-bottom: 4px;">🏢 <strong>Organización:</strong> {row['Organización_Sindical']}</div>
+                    <div style="margin-bottom: 4px;">🤖 <strong>Tipo IA:</strong> {row['Tipo_IA']}</div>
+                    <div style="margin-bottom: 4px;">📊 <strong>Estado:</strong> {row['Estado']}</div>
+                    <div style="margin-bottom: 4px;">📄 <strong>Fuente:</strong> {row['Fuente']}</div>
+                    <div style="margin-bottom: 8px;">👥 <strong>Actores:</strong> {row['Actores']}</div>
+                    
+                    <div style="border-top: 1px solid #ccc; margin: 10px 0;"></div>
+                    
+                    <div style="margin-bottom: 10px;">
+                        <div style="margin-bottom: 5px;"><strong>📝 Descripción:</strong></div>
+                        <div style="font-size: 12px; color: #555; line-height: 1.4; text-align: justify; 
+                                   max-height: 150px; overflow-y: auto; padding-right: 5px;">
+                            {str(row['Descripción'])}
+                        </div>
+                    </div>
+                    
+                    {f'<div style="text-align: center; margin-top: 8px;"><a href="{row["URL"]}" target="_blank" style="color: #0066cc; text-decoration: none; font-weight: bold;">🔗 Ver más información</a></div>' if row['URL'] and str(row['URL']).strip() else ''}
+                </div>
+            </div>
+            """
+            
+            # Crear marcador con datos para filtros
+            marcador = folium.Marker(
+                location=[row['Latitud'], row['Longitud']],
+                popup=folium.Popup(popup_html, max_width=400),
+                tooltip=f"{row['Titulo']} - {row['País']}",
+                icon=folium.Icon(color='blue', icon='info-sign')
+            )
+            
+            # Agregar al mapa
+            marcador.add_to(mapa)
+            
+            # Datos para JavaScript
+            casos_js.append({
+                'pais': str(row['País']),
+                'tipo_ia': str(row['Tipo_IA']),
+                'estado': str(row['Estado']),
+                'organizacion': str(row['Organización_Sindical'])
+            })
+    
+    # Agregar filtros HTML
+    filtros_html = crear_filtros_html()
+    mapa.get_root().html.add_child(folium.Element(filtros_html))
+    
+    # Script de inicialización
+    init_script = f"""
+    <script>
+    // Inicializar filtros cuando el mapa esté listo
+    document.addEventListener('DOMContentLoaded', function() {{
+        const casos = {casos_js};
+        
+        // Obtener referencia al mapa Leaflet
+        setTimeout(function() {{
+            const mapas = Object.keys(window).filter(key => key.startsWith('map_'));
+            if (mapas.length > 0) {{
+                const mapa = window[mapas[0]];
+                
+                // Guardar marcadores
+                mapa.eachLayer(function(layer) {{
+                    if (layer instanceof L.Marker) {{
+                        const index = todosLosMarcadores.length;
+                        if (casos[index]) {{
+                            layer.options.datos = casos[index];
+                        }}
+                        todosLosMarcadores.push(layer);
+                    }}
+                }});
+                
+                inicializarFiltros(casos, mapa);
+            }}
+        }}, 1000);
+    }});
+    </script>
+    """
+    
+    mapa.get_root().html.add_child(folium.Element(init_script))
+    
+    print("✅ MAPA CON FILTROS CREADO:")
+    print("   ✅ 4 filtros temáticos: País, Tipo IA, Estado, Organización")
+    print("   ✅ Contador de casos visible")
+    print("   ✅ Botón limpiar filtros")
+    print("   ✅ JavaScript interactivo integrado")
+    
+    return mapa
 
 # 🚀 PROCESO PRINCIPAL
 if __name__ == "__main__":
@@ -389,8 +665,8 @@ if __name__ == "__main__":
     df = aplicar_offset_automatico(df) 
     
     if not df.empty:
-        mapa = create_fixed_map(df)
-        
+        mapa = create_fixed_map_with_filters(df)
+       
         if mapa:
             nombre_archivo = 'index.html'
             mapa.save(nombre_archivo)
