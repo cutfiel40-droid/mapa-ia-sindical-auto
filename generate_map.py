@@ -259,6 +259,42 @@ def get_casos_ia_sindical():
         print(f"❌ ERROR CONEXIÓN: {e}")
         return pd.DataFrame()
 
+def aplicar_offset_automatico(df):
+    """Sistema para separar casos del mismo país"""
+    if df.empty:
+        return df
+        
+    # ✅ CORRECCIÓN: Convertir DataFrame a lista de diccionarios
+    casos = df.to_dict('records')     
+    
+    # Agrupar casos por país
+    casos_por_pais = {}
+    for caso in casos:
+        pais = caso.get('País', 'Desconocido')
+        if pais not in casos_por_pais:
+            casos_por_pais[pais] = []
+        casos_por_pais[pais].append(caso)
+    
+    casos_con_offset = []
+    
+    for pais, casos_pais in casos_por_pais.items():
+        if len(casos_pais) == 1:
+            # Un solo caso - mantener igual
+            casos_con_offset.extend(casos_pais)
+        else:
+            # Múltiples casos - separar un poco
+            for i, caso in enumerate(casos_pais):
+                if i == 0:
+                    casos_con_offset.append(caso)
+                else:
+                    caso_nuevo = caso.copy()
+                    caso_nuevo['Latitud'] = caso_nuevo.get('Latitud', 0) + (0.1 * i)
+                    caso_nuevo['Longitud'] = caso_nuevo.get('Longitud', 0) + (0.05 * i)
+                    casos_con_offset.append(caso_nuevo)
+    
+      # Convertir de vuelta a DataFrame
+    return pd.DataFrame(casos_con_offset)
+
 def create_fixed_map(df):
     """Crear mapa SIN continentes repetidos + descripción completa"""
     
@@ -350,6 +386,7 @@ def create_fixed_map(df):
 # 🚀 PROCESO PRINCIPAL
 if __name__ == "__main__":
     df = get_casos_ia_sindical()
+    df = aplicar_offset_automatico(df) 
     
     if not df.empty:
         mapa = create_fixed_map(df)
