@@ -385,65 +385,221 @@ def create_fixed_map(df):
     
     return mapa
 def crear_filtros_html():
-    """Generar HTML para filtros temáticos"""
+    """Generar HTML para filtros temáticos MINIMIZABLES"""
     return """
-    <div id="filtros-panel" style="position: fixed; top: 10px; left: 10px; 
-                                   background: white; border: 2px solid #333; 
-                                   border-radius: 10px; padding: 15px; z-index: 1000; 
-                                   width: 280px; max-height: 500px; overflow-y: auto;
-                                   box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
-        <h3 style="margin: 0 0 15px 0; color: #333; text-align: center;">🔍 Filtros Temáticos</h3>
-        
-        <!-- Filtro por País -->
-        <div style="margin-bottom: 12px;">
-            <label style="font-weight: bold; color: #555;">🌍 País:</label>
-            <select id="filtro-pais" onchange="aplicarFiltros()" style="width: 100%; padding: 5px; margin-top: 3px;">
-                <option value="">Todos los países</option>
-            </select>
+    <!-- BOTÓN FLOTANTE MINIMIZADO -->
+    <div id="filter-toggle" class="filter-toggle-btn" style="
+        position: fixed; 
+        top: 15px; 
+        left: 15px; 
+        background: #2E86AB; 
+        color: white; 
+        padding: 12px 20px; 
+        border-radius: 25px; 
+        cursor: pointer; 
+        z-index: 1001; 
+        font-weight: bold; 
+        font-size: 14px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        border: 2px solid white;
+        transition: all 0.3s ease;
+    " onmouseover="this.style.background='#1a5a7a'" onmouseout="this.style.background='#2E86AB'">
+        🔍 Filtros
+    </div>
+    
+    <!-- PANEL EXPANDIBLE (INICIALMENTE OCULTO) -->
+    <div id="filtros-panel" class="hidden" style="
+        position: fixed; 
+        top: 10px; 
+        left: 10px; 
+        background: white; 
+        border: 2px solid #333; 
+        border-radius: 15px; 
+        padding: 0; 
+        z-index: 1000; 
+        width: 300px; 
+        max-height: 550px; 
+        overflow-y: auto;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+        animation: slideIn 0.3s ease-out;
+    ">
+        <!-- HEADER CON BOTÓN CERRAR -->
+        <div style="
+            background: linear-gradient(135deg, #2E86AB, #1a5a7a); 
+            color: white; 
+            padding: 15px 20px; 
+            border-radius: 13px 13px 0 0; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+        ">
+            <h3 style="margin: 0; font-size: 16px;">🔍 Filtros Temáticos</h3>
+            <button id="close-filters" style="
+                background: rgba(255,255,255,0.2); 
+                border: none; 
+                color: white; 
+                font-size: 18px; 
+                font-weight: bold; 
+                cursor: pointer; 
+                padding: 5px 10px; 
+                border-radius: 50%; 
+                transition: background 0.2s;
+            " onmouseover="this.style.background='rgba(255,255,255,0.3)'" 
+               onmouseout="this.style.background='rgba(255,255,255,0.2)'">✕</button>
         </div>
         
-        <!-- Filtro por Tipo IA -->
-        <div style="margin-bottom: 12px;">
-            <label style="font-weight: bold; color: #555;">🤖 Tipo de IA:</label>
-            <select id="filtro-tipo-ia" onchange="aplicarFiltros()" style="width: 100%; padding: 5px; margin-top: 3px;">
-                <option value="">Todos los tipos</option>
-            </select>
-        </div>
-        
-        <!-- Filtro por Estado -->
-        <div style="margin-bottom: 12px;">
-            <label style="font-weight: bold; color: #555;">📊 Estado:</label>
-            <select id="filtro-estado" onchange="aplicarFiltros()" style="width: 100%; padding: 5px; margin-top: 3px;">
-                <option value="">Todos los estados</option>
-            </select>
-        </div>
-        
-        <!-- Filtro por Organización -->
-        <div style="margin-bottom: 15px;">
-            <label style="font-weight: bold; color: #555;">🏢 Organización:</label>
-            <select id="filtro-organizacion" onchange="aplicarFiltros()" style="width: 100%; padding: 5px; margin-top: 3px;">
-                <option value="">Todas las organizaciones</option>
-            </select>
-        </div>
-        
-        <!-- Botón Limpiar -->
-        <button onclick="limpiarFiltros()" style="width: 100%; padding: 8px; background: #f0f0f0; 
-                                                   border: 1px solid #ccc; border-radius: 5px; 
-                                                   cursor: pointer; font-weight: bold;">
-            🔄 Limpiar Filtros
-        </button>
-        
-        <!-- Contador casos visibles -->
-        <div id="contador-casos" style="text-align: center; margin-top: 10px; 
-                                       font-size: 12px; color: #666; font-weight: bold;">
-            Mostrando: 0 casos
+        <!-- CONTENIDO FILTROS -->
+        <div style="padding: 20px;">
+            <!-- Filtro por País -->
+            <div style="margin-bottom: 15px;">
+                <label style="font-weight: bold; color: #333; display: block; margin-bottom: 5px;">🌍 País:</label>
+                <select id="filtro-pais" onchange="aplicarFiltros()" style="
+                    width: 100%; 
+                    padding: 8px 12px; 
+                    border: 2px solid #ddd; 
+                    border-radius: 8px; 
+                    font-size: 14px;
+                    background: white;
+                ">
+                    <option value="">Todos los países</option>
+                </select>
+            </div>
+            
+            <!-- Filtro por Tipo IA -->
+            <div style="margin-bottom: 15px;">
+                <label style="font-weight: bold; color: #333; display: block; margin-bottom: 5px;">🤖 Tipo de IA:</label>
+                <select id="filtro-tipo-ia" onchange="aplicarFiltros()" style="
+                    width: 100%; 
+                    padding: 8px 12px; 
+                    border: 2px solid #ddd; 
+                    border-radius: 8px; 
+                    font-size: 14px;
+                    background: white;
+                ">
+                    <option value="">Todos los tipos</option>
+                </select>
+            </div>
+            
+            <!-- Filtro por Estado -->
+            <div style="margin-bottom: 15px;">
+                <label style="font-weight: bold; color: #333; display: block; margin-bottom: 5px;">📊 Estado:</label>
+                <select id="filtro-estado" onchange="aplicarFiltros()" style="
+                    width: 100%; 
+                    padding: 8px 12px; 
+                    border: 2px solid #ddd; 
+                    border-radius: 8px; 
+                    font-size: 14px;
+                    background: white;
+                ">
+                    <option value="">Todos los estados</option>
+                </select>
+            </div>
+            
+            <!-- Filtro por Organización -->
+            <div style="margin-bottom: 20px;">
+                <label style="font-weight: bold; color: #333; display: block; margin-bottom: 5px;">🏢 Organización:</label>
+                <select id="filtro-organizacion" onchange="aplicarFiltros()" style="
+                    width: 100%; 
+                    padding: 8px 12px; 
+                    border: 2px solid #ddd; 
+                    border-radius: 8px; 
+                    font-size: 14px;
+                    background: white;
+                ">
+                    <option value="">Todas las organizaciones</option>
+                </select>
+            </div>
+            
+            <!-- Botón Limpiar -->
+            <button onclick="limpiarFiltros()" style="
+                width: 100%; 
+                padding: 12px; 
+                background: linear-gradient(135deg, #f8f9fa, #e9ecef); 
+                border: 2px solid #ddd; 
+                border-radius: 8px; 
+                cursor: pointer; 
+                font-weight: bold; 
+                font-size: 14px;
+                transition: all 0.2s;
+                color: #333;
+            " onmouseover="this.style.background='linear-gradient(135deg, #e9ecef, #dee2e6)'" 
+               onmouseout="this.style.background='linear-gradient(135deg, #f8f9fa, #e9ecef)'">
+                🔄 Limpiar Filtros
+            </button>
+            
+            <!-- Contador casos visibles -->
+            <div id="contador-casos" style="
+                text-align: center; 
+                margin-top: 15px; 
+                font-size: 13px; 
+                color: #666; 
+                font-weight: bold;
+                padding: 8px;
+                background: #f8f9fa;
+                border-radius: 6px;
+            ">
+                Mostrando: 0 casos
+            </div>
         </div>
     </div>
+    
+    <!-- ESTILOS CSS -->
+    <style>
+    .hidden {
+        display: none !important;
+    }
+    
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    @keyframes slideOut {
+        from {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        to {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+    }
+    
+    .filter-toggle-btn:hover {
+        transform: scale(1.05);
+    }
+    </style>
     
     <script>
     // Variables globales
     let todosLosMarcadores = [];
     let mapaGlobal = null;
+    
+    // FUNCIONALIDAD MINIMIZAR/EXPANDIR
+    document.addEventListener('DOMContentLoaded', function() {
+        // Mostrar panel al hacer click en botón flotante
+        document.getElementById('filter-toggle').onclick = function() {
+            document.getElementById('filtros-panel').classList.remove('hidden');
+            this.style.display = 'none';
+        };
+        
+        // Cerrar panel al hacer click en X
+        document.getElementById('close-filters').onclick = function() {
+            const panel = document.getElementById('filtros-panel');
+            panel.style.animation = 'slideOut 0.3s ease-in';
+            setTimeout(function() {
+                panel.classList.add('hidden');
+                panel.style.animation = 'slideIn 0.3s ease-out';
+                document.getElementById('filter-toggle').style.display = 'block';
+            }, 300);
+        };
+    });
     
     // Función para inicializar filtros
     function inicializarFiltros(casos, mapa) {
@@ -524,6 +680,8 @@ def crear_filtros_html():
     }
     </script>
     """
+
+
 
 def create_fixed_map_with_filters(df):
     """Crear mapa CON filtros temáticos integrados"""
